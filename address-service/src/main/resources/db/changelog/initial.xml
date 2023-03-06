@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.17.xsd">
+
+    <changeSet id="1677549831317-1" author="rahulraogonda">
+        <createTable tableName="t_countries">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="isoCode" type="char(2)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="e164Code" type="char(4)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="iso3Code" type="char(3)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="capital" type="varchar2(255)"/>
+            <column name="ccy" type="varchar2(255)"/>
+            <column name="ccyCode" type="char(3)"/>
+            <column name="population" type="int"/>
+            <column name="area" type="real"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1677549831317-2" author="rahulraogonda">
+        <createTable tableName="t_address_type">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="addressType" type="char(1)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1677549831317-3" author="rahulraogonda">
+        <createTable tableName="t_address">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="addressType" type="char(1)"/>
+            <column name="line1" type="varchar2(255)"/>
+            <column name="line2" type="varchar2(255)"/>
+            <column name="city" type="varchar2(255)"/>
+            <column name="state" type="varchar2(255)"/>
+            <column name="countryCode" type="char(2)"/>
+            <column name="postalCode" type="varchar2(20)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

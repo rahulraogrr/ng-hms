@@ -1,0 +1,7 @@
+spring:
+  application:
+    admin:
+      enabled: false
+    name: address-service
+  profiles:
+    active: dev
